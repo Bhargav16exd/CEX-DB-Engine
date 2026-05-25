@@ -8,22 +8,18 @@ datasource db {
 }
 
 model Order {
-  id             String   @id
   side           String
   type           String
   price          Int
   quantity       Int
   filledQuantity Int
   status         String
-  userId         Int
-  stockId        Int
+  userId         String
   deleted        Boolean  @default(false)
   createdAt      DateTime @default(now())
-  updatedAt      DateTime
-  Stock          Stock    @relation(fields: [stockId], references: [id])
-  User           User     @relation(fields: [userId], references: [id])
+  orderId        String   @id
+  stockSymbol    String
 
-  @@index([stockId])
   @@index([userId])
 }
 
@@ -34,7 +30,6 @@ model Stock {
   imageurl String
   market   String
   deleted  Boolean @default(false)
-  Order    Order[]
 }
 
 model User {
@@ -43,7 +38,6 @@ model User {
   password String
   balance  Int     @default(0)
   deleted  Boolean @default(false)
-  Order    Order[]
 }
 
 model Fill {

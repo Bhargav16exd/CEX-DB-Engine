@@ -4,7 +4,7 @@ import { FILLS } from "../store/fills-store.js";
 const sleep = (ms:number) => 
   new Promise(resolve => setTimeout(resolve, ms));
 
-export const startFillIngestor = async () => {
+export const initFillIngestor = async () => {
 
   console.log("FILLS INGESTOR IS RUNNING");
 
@@ -20,7 +20,6 @@ export const startFillIngestor = async () => {
     const result = await prisma.fill.createMany({
       data:batch
     })
-
-    console.log(result)
+    
   } 
 }

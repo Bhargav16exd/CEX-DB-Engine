@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 import { connectRedis, subscriber } from "./queue/queue-client.js";
 import type { AdapterRequestType } from "./types/db-adapter-types.js";
 import { requestHandler } from "./handler/request-hanlder.js";
-import { startFillIngestor } from "./handler/fill-hanlder.js";
+import { initFillIngestor } from "./handler/fill-handler.js";
+import { initAppendOnlyOrderIngestor, initInsertAndUpdateOrderIngestor } from "./handler/order-handler.js";
 
 dotenv.config();
 
@@ -26,4 +27,6 @@ const listenQueue = async () => {
 }
 
 listenQueue();
-startFillIngestor();
+initFillIngestor();
+initAppendOnlyOrderIngestor();
+initInsertAndUpdateOrderIngestor();
