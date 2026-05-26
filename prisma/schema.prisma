@@ -56,3 +56,14 @@ model Fill {
   @@index([market])
   @@index([takerOrderID])
 }
+
+model Contracts {
+  id                String @id
+  contract_quantity Int
+  avg_price         Int
+  collateral        Int
+  realizedProfit    Int
+  realizedLoss      Int
+  stockSymbol       String
+  userId            String
+}

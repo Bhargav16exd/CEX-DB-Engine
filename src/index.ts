@@ -4,6 +4,7 @@ import type { AdapterRequestType } from "./types/db-adapter-types.js";
 import { requestHandler } from "./handler/request-hanlder.js";
 import { initFillIngestor } from "./handler/fill-handler.js";
 import { initAppendOnlyOrderIngestor, initInsertAndUpdateOrderIngestor } from "./handler/order-handler.js";
+import { initContractIngestor } from "./handler/contract-hanlder.js";
 
 dotenv.config();
 
@@ -30,3 +31,4 @@ listenQueue();
 initFillIngestor();
 initAppendOnlyOrderIngestor();
 initInsertAndUpdateOrderIngestor();
+initContractIngestor();
