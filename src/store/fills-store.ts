@@ -4,6 +4,7 @@ type FillType = {
   makerID: string;
   takerOrderID: string;
   quantity: number;
+  symbol:string;
   market: string;
   price:number;
 }

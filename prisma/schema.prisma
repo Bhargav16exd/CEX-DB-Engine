@@ -18,18 +18,18 @@ model Order {
   deleted        Boolean  @default(false)
   createdAt      DateTime @default(now())
   orderId        String   @id
-  stockSymbol    String
+  market         String
+  symbol         String
 
   @@index([userId])
 }
 
 model Stock {
-  id       Int     @id @default(autoincrement())
-  title    String
-  symbol   String
-  imageurl String
-  market   String
-  deleted  Boolean @default(false)
+  id      Int     @id @default(autoincrement())
+  title   String
+  symbol  String
+  market  String
+  deleted Boolean @default(false)
 }
 
 model User {
@@ -50,10 +50,11 @@ model Fill {
   market       String
   price        Int
   createdAt    DateTime @default(now())
+  symbol       String
 
   @@index([createdAt])
   @@index([makerOrderID])
-  @@index([market])
+  @@index([symbol], map: "Fill_market_idx")
   @@index([takerOrderID])
 }
 

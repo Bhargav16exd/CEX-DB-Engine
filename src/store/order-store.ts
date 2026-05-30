@@ -19,7 +19,8 @@ export type Order = {
 
 	userId:string,
 
-  stockSymbol:string,
+  symbol:string,
+  market:string,
   updatedAt: Date
 }
 
