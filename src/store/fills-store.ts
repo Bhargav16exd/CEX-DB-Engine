@@ -7,6 +7,8 @@ type FillType = {
   symbol:string;
   market: string;
   price:number;
+  makerSide:string;
+  takerSide:string;
 }
 
 export let FILLS: FillType[] = [];
