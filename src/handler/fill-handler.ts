@@ -18,6 +18,7 @@ export const initFillIngestor = async () => {
     const batch = FILLS.splice(0, 10);
 
     const result = await prisma.fill.createMany({
+      //@ts-ignore
       data:batch
     })
     

@@ -50,7 +50,7 @@ model Fill {
   quantity     Int
   market       String
   price        Int
-  createdAt    DateTime @default(now())
+  createdAt    DateTime
   symbol       String
   makerSide    String
   takerSide    String
